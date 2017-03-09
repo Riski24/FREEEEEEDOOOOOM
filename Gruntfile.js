@@ -20,16 +20,40 @@ module.exports = function(grunt) {
       }
     },
 
+    concat: {
+      target: {
+        files: {
+          'public/dist/client.js': ['public/client/*.js'],
+          'public/dist/lib.js': ['public/lib/*.js']
+        }
+      }
+    },
+
     uglify: {
+      target: {
+        files: {
+          'public/dist/client.min.js': ['public/dist/client.js'],
+          'public/dist/lib.min.js': ['public/dist/lib.js']
+        }
+      }
     },
 
     eslint: {
       target: [
-        // Add list of files to lint here
+        'app/**/*.js',
+        'lib/*.js',
+        'public/*.js',
+        'public/client/**/*.js',
+        'test/*.js'
       ]
     },
 
     cssmin: {
+      target: {
+        files: {
+          'public/dist/style.min.css': ['public/style.css']
+        }
+      }
     },
 
     watch: {
@@ -91,5 +115,8 @@ module.exports = function(grunt) {
     // add your deploy tasks here
   ]);
 
-
+  grunt.registerTask('testing', [
+    'eslint',
+    'nodemon'
+  ]);
 };
