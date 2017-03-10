@@ -23,8 +23,7 @@ module.exports = function(grunt) {
     concat: {
       target: {
         files: {
-          'public/dist/client.js': ['public/client/*.js'],
-          'public/dist/lib.js': ['public/lib/*.js']
+          'public/dist/client.js': ['public/client/*.js']
         }
       }
     },
@@ -32,8 +31,7 @@ module.exports = function(grunt) {
     uglify: {
       target: {
         files: {
-          'public/dist/client.min.js': ['public/dist/client.js'],
-          'public/dist/lib.min.js': ['public/dist/lib.js']
+          'public/dist/client.min.js': ['public/dist/client.js']
         }
       }
     },
